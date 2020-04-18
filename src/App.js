@@ -34,7 +34,7 @@ class App extends React.Component {
   
     };
   
-    this.setState({ currentUser: userAuth });
+    setCurrentUser(userAuth);
 
    });
 
@@ -47,11 +47,12 @@ class App extends React.Component {
  render(){
   return (
     <div>
-    <Header/>
+    <Header/> 
     <Switch>
   <Route exact path='/' component={HomePage}/>
   <Route path='/shop' component={ShopPage}/>
   <Route exact path='/checkout' component={CheckOutPage}/>
+
   <Route exact path='/signin' 
   render={()=>
   this.props.currentUser ?(
@@ -81,3 +82,4 @@ const mapDispathToProps = dispatch =>({
 
 export default connect(mapStateToProps,
   mapDispathToProps)(App);
+ 
